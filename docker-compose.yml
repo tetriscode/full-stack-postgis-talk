@@ -1,0 +1,23 @@
+version: '2'
+volumes:
+  pg-data:
+    driver: local
+services:
+  db:
+    container_name: db
+    build: ./postgis
+    image: full-stack-
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+  pgweb:
+    container_name: pgweb
+    restart: always
+    image: sosedoff/pgweb
+    ports:
+      - "8081:8081"
+    links:
+      - db:db
+    environment:
+      - DATABASE_URL=postgres://

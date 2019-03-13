@@ -5,8 +5,8 @@ volumes:
 services:
   db:
     container_name: db
-    build: ./postgis
-    image: full-stack-
+    build: ./docker
+    image: full-stack/postgis:latest
     volumes:
       - pg-data:/var/lib/postgresql/data
     ports:
@@ -20,4 +20,6 @@ services:
     links:
       - db:db
     environment:
-      - DATABASE_URL=postgres://
+      - DATABASE_URL=postgres://fullstack:fullstack@db:5432/fullstack?sslmode=disable
+    depends_on:
+      - db

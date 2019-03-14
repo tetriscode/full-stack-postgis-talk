@@ -2,9 +2,17 @@
 
 [PostGIS Home Page](https://postgis.net/install/)
 
+[Postgres Windows](https://www.postgresql.org/download/windows/)
+
+[Postgres Mac](https://postgresapp.com/downloads.html)
+
+## Good Links ##
+
+[GeoJSON.io](http://geojson.io/#map=2/20.0/0.0)
+
 ## Create Postgis Extension
 
-\$> psql -h localhost -U postgres -d fullstack -c 'CREATE EXTENSION postgis;'
+		$> psql -h localhost -U postgres -d fullstack -c 'CREATE EXTENSION postgis;'
 
 ## Connect to database
 
@@ -44,7 +52,7 @@ Euclidean / Planar
 
 ## Projections
 
-https://www.youtube.com/watch?v=KUF_Ckv8HbE
+[Projections Video](https://www.youtube.com/watch?v=KUF_Ckv8HbE)
 
 ## Loading Data
 
@@ -89,3 +97,7 @@ https://www.youtube.com/watch?v=KUF_Ckv8HbE
 ## Simplify
 
     $> SELECT ST_AsGeoJSON(ST_Simplify(wkb_geometry,0.2)) from states WHERE state_abbr = 'MO';
+
+## Index ##
+
+	$> CREATE INDEX index_name ON nyc_census_block USING GIST (geom);

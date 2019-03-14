@@ -12,7 +12,7 @@
 
 ## Create Postgis Extension
 
-		$> psql -h localhost -U postgres -d fullstack -c 'CREATE EXTENSION postgis;'
+    $> psql -h localhost -U postgres -d fullstack -c 'CREATE EXTENSION postgis;'
 
 ## Connect to database
 
